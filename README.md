@@ -1,2 +1,1 @@
-# alx-backend-javascript
-ALX Backend Course - JavaScript
+# ALX Backend Course - JavaScript
