@@ -132,4 +132,5 @@ dist
 *-main.js
 **/package-lock.json
 .vscode/launch.json
+node_modules
 .gitignore
