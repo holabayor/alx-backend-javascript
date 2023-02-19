@@ -20,17 +20,17 @@ export const printTeacher: printTeacherFunction = (firstName: string, lastName: 
     return `${firstName.slice(0, 1)}. ${lastName}`
 }
 
-interface StudentConstructor {
-    new (firstName: string, lastName: string): StudentClassInterface;
-}
-
 interface StudentClassInterface {
     workOnHomework(): string;
     displayName(): string;
 }
 
+interface StudentConstructor {
+    new (firstName: string, lastName: string): StudentClassInterface;
+}
 
-export const StudentClass: StudentConstructor = class StudentClass implements StudentClassInterface {
+
+class StudentClass implements StudentClassInterface {
     firstName: string;
     lastName: string;
     constructor(firstName: string, lastName: string) {
