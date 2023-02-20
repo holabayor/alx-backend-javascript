@@ -134,3 +134,4 @@ dist
 .vscode/launch.json
 node_modules
 .gitignore
+*-main_*.js
