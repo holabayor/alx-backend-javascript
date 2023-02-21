@@ -13,7 +13,7 @@ const countStudents = (path) => {
         reject(Error('Cannot load the database'));
       }
       let content = data.toString().split('\n');
-      console.log('Number of students: ', content.length - 1); // remove the header line
+      console.log('Number of students:', content.length - 1); // remove the header line
       content = content.slice(1);
       const subjects = {};
       for (const line of content) {
