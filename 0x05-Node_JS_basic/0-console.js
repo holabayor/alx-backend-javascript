@@ -5,7 +5,7 @@
  */
 
 const displayMessage = (args) => {
-  process.stdout.write(args + '\n');
+  console.log(args);
 };
 
 module.exports = displayMessage;
