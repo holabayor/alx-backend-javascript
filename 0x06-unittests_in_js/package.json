@@ -1,11 +1,19 @@
 {
-  "name": "unittest",
+  "name": "unittests_in_js",
   "version": "1.0.0",
-  "description": "basic and integration tests with mocha, chai and node",
+  "description": "Unittests in JS using mocha, chai and node",
+  "main": " ",
   "scripts": {
-    "test": "node ./node_modules/mocha/bin/mocha"
+    "test": "node ./node_modules/mocha/bin/mocha --require babel-register --exit"
   },
-  "author": "",
+  "keywords": [
+    "node",
+    "unittest",
+    "mocha",
+    "chai",
+    "assert"
+  ],
+  "author": "Liasu Josh",
   "license": "ISC",
   "devDependencies": {
     "mocha": "^10.2.0"

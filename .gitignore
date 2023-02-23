@@ -134,3 +134,4 @@ dist
 node_modules
 .gitignore
 *-main_*.js
+jsconfig.json
