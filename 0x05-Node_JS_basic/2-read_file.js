@@ -13,7 +13,7 @@ const countStudents = (path) => {
     let data = fs.readFileSync(path)
       .toString().split('\n');
 
-    console.log('Number of students:', data.length - 1); // remove the header line
+    console.log(`Number of students: ${data.length - 1}`); // remove the header line
     data = data.slice(1);
     const subjects = {};
     for (const line of data) {
