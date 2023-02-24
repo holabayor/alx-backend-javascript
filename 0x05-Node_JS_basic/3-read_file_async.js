@@ -1,10 +1,9 @@
-const fs = require('fs');
-
 /**
  * Counts the number of students in a file.
  * @param {string} path - Path of the csv file
  * @author Josh Liasu <a href="http://github.com/holabayor">
  */
+const fs = require('fs');
 
 const countStudents = (path) => {
   const promise = (resolve, reject) => {
