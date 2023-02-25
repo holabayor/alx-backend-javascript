@@ -1,13 +1,12 @@
+const fs = require('fs');
+
 /**
  * Counts the number of students in a file.
  * @param {string} path - Path of the csv file
  * @author Josh Liasu <a href="http://github.com/holabayor">
  */
-const fs = require('fs');
-const { response } = require('./6-http_express');
-
 const countStudents = (path) => {
-  const promise = (resolve, reject) => {
+  return new Promise((resolve, reject) => {
     fs.readFile(path, 'utf8', (error, data) => {
       if (error) {
         reject(Error('Cannot load the database'));
@@ -30,11 +29,11 @@ const countStudents = (path) => {
           msg = `Number of students in ${subject}: ${subjects[subject].length}. List: ${subjects[subject].join(', ')}`
           console.log(msg);
           response.push(msg);
-          resolve(response);
         }
       }
+      resolve(response);
     });
-  }; return new Promise(promise);
+  });
 };
 
 module.exports = countStudents;
