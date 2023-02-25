@@ -20,8 +20,8 @@ function countStudents(path) {
       response.push(msg);
       content = content.slice(1);
       const subjects = {};
-      for (const student of content) {
-      // const student = line.split(',');
+      for (const line of content) {
+        const student = line.split(',');
         if (!subjects[student[3]]) subjects[student[3]] = [];
         subjects[student[3]].push(student[0]);
       }
