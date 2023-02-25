@@ -8,14 +8,13 @@ const fs = require('fs');
 const countStudents = (path) => {
   let data;
   try {
-    data = fs.readFileSync(path)
-      .toString().split('\n');
+    data = fs.readFileSync(path);
   } catch (error) {
     throw new Error('Cannot load the database');
   }
 
   console.log(`Number of students: ${data.length - 1}`); // remove the header line
-  data = data.slice(1);
+  data = data.toString().split('\n').slice(1);
   const subjects = {};
   for (const line of data) {
     const student = line.split(',');
