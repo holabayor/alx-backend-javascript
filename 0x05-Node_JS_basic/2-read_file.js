@@ -6,28 +6,26 @@
 const fs = require('fs');
 
 const countStudents = (path) => {
-  if (!fs.existsSync(path)) {
-    throw new Error('Cannot load the database');
-  }
+  let data;
   try {
-    let data = fs.readFileSync(path)
+    data = fs.readFileSync(path)
       .toString().split('\n');
-
-    console.log(`Number of students: ${data.length - 1}`); // remove the header line
-    data = data.slice(1);
-    const subjects = {};
-    for (const line of data) {
-      const student = line.split(',');
-      if (!subjects[student[3]]) subjects[student[3]] = [];
-      subjects[student[3]].push(student[0]);
-    }
-    for (const subject in subjects) {
-      if (subject) {
-        console.log(`Number of students in ${subject}: ${subjects[subject].length}. List: ${subjects[subject].join(', ')}`);
-      }
-    }
   } catch (error) {
     throw new Error('Cannot load the database');
+  }
+
+  console.log(`Number of students: ${data.length - 1}`); // remove the header line
+  data = data.slice(1);
+  const subjects = {};
+  for (const line of data) {
+    const student = line.split(',');
+    if (!subjects[student[3]]) subjects[student[3]] = [];
+    subjects[student[3]].push(student[0]);
+  }
+  for (const subject in subjects) {
+    if (subject) {
+      console.log(`Number of students in ${subject}: ${subjects[subject].length}. List: ${subjects[subject].join(', ')}`);
+    }
   }
 };
 
