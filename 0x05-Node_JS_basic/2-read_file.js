@@ -5,7 +5,7 @@
  */
 const fs = require('fs');
 
-const countStudents = (path) => {
+function countStudents(path) {
   let data;
   try {
     data = fs.readFileSync(path);
@@ -26,6 +26,6 @@ const countStudents = (path) => {
       console.log(`Number of students in ${subject}: ${subjects[subject].length}. List: ${subjects[subject].join(', ')}`);
     }
   }
-};
+}
 
 module.exports = countStudents;
