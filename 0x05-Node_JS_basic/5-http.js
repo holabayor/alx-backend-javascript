@@ -17,10 +17,10 @@ const app = http.createServer((req, res) => {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'text/plain');
         res.write('This is the list of our students\n');
-        console.log(typeof data);
+        res.write(data.join('\n'));
         // process.stdout.write(data);
         // res.write(Buffer.from(data));
-        res.end('Done loading');
+        res.end('\nDone loading');
       });
   }
 });

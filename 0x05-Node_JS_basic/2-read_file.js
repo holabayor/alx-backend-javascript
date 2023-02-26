@@ -5,7 +5,7 @@
  */
 const fs = require('fs');
 
-function countStudents(path) {
+function countStudents (path) {
   let data;
   try {
     data = fs.readFileSync(path);
@@ -13,8 +13,8 @@ function countStudents(path) {
     throw new Error('Cannot load the database');
   }
 
-  console.log(`Number of students: ${data.length - 1}`); // remove the header line
   data = data.toString().split('\n').slice(1);
+  console.log(`Number of students: ${data.length}`); // remove the header line
   const subjects = {};
   for (const line of data) {
     const student = line.split(',');
@@ -26,6 +26,6 @@ function countStudents(path) {
       console.log(`Number of students in ${subject}: ${subjects[subject].length}. List: ${subjects[subject].join(', ')}`);
     }
   }
-}
+};
 
 module.exports = countStudents;
