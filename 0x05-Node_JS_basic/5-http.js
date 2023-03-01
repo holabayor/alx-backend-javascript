@@ -3,7 +3,7 @@ const fs = require('fs');
 
 const port = 1245;
 const host = 'localhost';
-const database = process.argv.length > 2 ? process.argv[2] : 'database.csv';
+const database = process.argv.length > 2 ? process.argv[2] : '';
 
 function countStudents(path) {
   return new Promise((resolve, reject) => {
