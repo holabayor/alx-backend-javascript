@@ -10,11 +10,10 @@ function countStudents(path) {
     fs.readFile(path, 'utf-8', (error, data) => {
       if (error || !fs.existsSync(path)) {
         reject(Error('Cannot load the database'));
-        return;
       }
       const response = [];
       let msg = '';
-      let content = data.toString().split('\n');
+      let content = data.toString().trim().split('\n');
       msg = `Number of students: ${content.length - 1}`; // remove the header line
       response.push(msg);
       content = content.slice(1);
