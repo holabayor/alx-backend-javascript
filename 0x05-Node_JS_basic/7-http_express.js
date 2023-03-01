@@ -11,8 +11,13 @@ app.get('/', (req, res) => {
 });
 
 app.get('/students', (req, res) => {
-  res.send('This is the list of our students');
-  countStudents(process.argv[2]);
+
+  let txt = []
+  txt.push('This is the list of our students');
+  countStudents(process.argv[2]).then((data) => {
+    res.write(data.join('\n'));
+
+  });
 });
 
 app.listen(port, host, () => {

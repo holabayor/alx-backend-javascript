@@ -16,7 +16,6 @@ function countStudents(path) {
       let msg = '';
       let content = data.toString().split('\n');
       msg = `Number of students: ${content.length - 1}`; // remove the header line
-      console.log(msg);
       response.push(msg);
       content = content.slice(1);
       const subjects = {};
@@ -28,11 +27,13 @@ function countStudents(path) {
       for (const subject in subjects) {
         if (subject) {
           msg = `Number of students in ${subject}: ${subjects[subject].length}. List: ${subjects[subject].join(', ')}`;
-          console.log(msg);
           response.push(msg);
         }
       }
-      resolve(response);
+      for (const line of response) {
+        console.log(line);
+      }
+      resolve(true);
     });
   });
 }
