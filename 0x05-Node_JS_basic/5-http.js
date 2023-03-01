@@ -13,16 +13,20 @@ function countStudents(path) {
       }
       const response = [];
       let msg = '';
-      let content = data.toString().trim().split('\n');
-      msg = `Number of students: ${content.length - 1}`; // remove the header line
-      response.push(msg);
-      content = content.slice(1);
       const subjects = {};
-      for (const line of content) {
-        const student = line.split(',');
-        if (!subjects[student[3]]) subjects[student[3]] = [];
-        subjects[student[3]].push(student[0]);
+      if (data) {
+        let content = data.toString().trim().split('\n');
+        msg = `Number of students: ${content.length - 1}`; // remove the header line
+        response.push(msg);
+        content = content.slice(1);
+
+        for (const line of content) {
+          const student = line.split(',');
+          if (!subjects[student[3]]) subjects[student[3]] = [];
+          subjects[student[3]].push(student[0]);
+        }
       }
+
       for (const subject in subjects) {
         if (subject) {
           msg = `Number of students in ${subject}: ${subjects[subject].length}. List: ${subjects[subject].join(', ')}`;
@@ -48,6 +52,11 @@ const app = http.createServer((req, res) => {
         res.write('This is the list of our students\n');
         res.write(Buffer.from(data.join('\n')));
         res.end();
+      })
+      .catch((err) => {
+        res.statusCode = 200;
+        res.write('This is the list of our students\n');
+        res.end(err.message);
       });
   }
 });
